@@ -1,3 +1,6 @@
+// Lev Ari Cohen | Guy Chriqui | Michael Makmel | Dor Munsa //
+//   304829807   |  203137641  |   203447834    | 204325229 //
+
 #include "checkList.h"
 
 #define OPTIONS_NUMBER 15
