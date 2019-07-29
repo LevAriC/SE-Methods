@@ -13,6 +13,7 @@ bool Control::isControlsList() { return FALSE; };
 short Control::getLeft() { return this->left; }
 short Control::getTop() { return this->top; }
 bool Control::canGetFocus() { return FALSE; }
+bool Control::isLastIndex() { return TRUE; }
 bool Control::setFocus(Control& control)
 {
 	if (focusedControl != NULL)
@@ -34,3 +35,16 @@ bool Control::setFocus(Control& control)
 	return TRUE;
 }
 
+void Control::changeFocusedColor()
+{
+	if (backgroundColor == Color::White)
+	{
+		backgroundColor = Color::Black;
+		foregroundColor = Color::White;
+	}
+	else
+	{
+		backgroundColor = Color::White;
+		foregroundColor = Color::Black;
+	}
+}
