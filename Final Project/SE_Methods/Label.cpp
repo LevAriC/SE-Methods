@@ -1,22 +1,12 @@
-#include "stdafx.h"
 #include "Label.h"
-#include <iostream>
 
-Label::Label(string value) : Control(), value(value) {};
+Label::Label(short left, short top , string value) :Control(left , top) , value(value) {}
 
-string Label::getValue()
+void Label::draw(Graphics& graphics, int x, int y)
 {
-	return this->value;
-}
-
-void Label::setValue(string value)
-{
-	this->value = value;
-}
-
-
-void Label::draw(Graphics& g, int x, int y, size_t z)
-{
-	if (!z)
-		g.write(value);
+	graphics.moveTo(x, y);
+	graphics.setBackground(backgroundColor);
+	graphics.setForeground(foregroundColor);
+	graphics.moveTo(x + 3, y + 1);
+	graphics.write(value);
 }
