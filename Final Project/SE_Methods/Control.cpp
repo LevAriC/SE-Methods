@@ -1,10 +1,36 @@
-#include "stdafx.h"
 #include "Control.h"
 
-Control::Control()
+Control* Control::focusedControl = NULL;
+Control::Control(short left, short top) : left(left), top(top), backgroundColor(Color::Black), foregroundColor(Color::White), border(NULL) {};
+Control::Control(short left, short top, Border* border) : left(left), top(top), backgroundColor(Color::Black), foregroundColor(Color::White), border(border) {};
+Control* Control::getFocus() { return focusedControl; }
+void Control::setBackgroundColor(Color backgroundColor) { this->backgroundColor = backgroundColor; }
+void Control::setForegroundColor(Color foregroundColor) { this->foregroundColor = foregroundColor; }
+void Control::setBorder(Border* border) { this->border = border; }
+void Control::setWidth(int) { this->width = width; }
+int Control::getWidth() { return width; }
+bool Control::isControlsList() { return FALSE; };
+short Control::getLeft() { return this->left; }
+short Control::getTop() { return this->top; }
+bool Control::canGetFocus() { return FALSE; }
+bool Control::setFocus(Control& control)
 {
+	if (focusedControl != NULL)
+	{
+		if (!control.isControlsList())
+		{
+			focusedControl->onFocus(FALSE);
+			focusedControl = &control;
+			control.onFocus(TRUE);
+			return TRUE;
+		}
+		focusedControl->onFocus(FALSE);
+		focusedControl = &control;
+		control.onFocus(TRUE);
+		return TRUE;
+	}
+	focusedControl = &control;
+	control.onFocus(TRUE);
+	return TRUE;
 }
 
-Control::~Control()
-{
-}

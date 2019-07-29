@@ -1,32 +1,47 @@
 #pragma once
-#ifndef CONTROL_H
-#define CONTROL_H
 
 #include "Graphics.h"
+#include "Border.h"
 #include <vector>
 
 using namespace std;
 
 class Control
 {
+private:
+	static Control* focusedControl;
 
 protected:
 	short left;
 	short top;
+	short width;
+	Color backgroundColor;
+	Color foregroundColor;
+	Border* border;
 
 public:
-	Control();
-	static Control* getFocus() { return NULL; };
-	static void setFocus(Control& control) {};
+	Control() {};
+	Control(short, short);
+	Control(short, short, Border*);
 
-	virtual void draw(Graphics& g, int x, int y, size_t z) {};
-	virtual void mousePressed(int x, int y, bool isLeft) {};
-	virtual void keyDown(int keyCode, char charecter) {};
-	virtual short getLeft() { return 0; };
-	virtual short getTop() { return 0; };
-	virtual void getAllControls(vector<Control*>* controls) {};
-	virtual bool canGetFocus() { return FALSE; };
-	~Control();
+	static Control* getFocus();
+	static bool setFocus(Control&);
+	virtual void draw(Graphics&, int, int, size_t) = 0;
+	virtual void mousePressed(int, int, bool) {};
+	virtual void keyDown(int, char, Graphics&) {};
+	virtual short getLeft();
+	virtual short getTop();
+	virtual void getAllControls(vector<Control*>*) {};
+	virtual bool canGetFocus();
+	
+	virtual void setBackgroundColor(Color);
+	virtual void setForegroundColor(Color);
+	virtual void setBorder(Border*);
+	virtual void onFocus(bool) {};
+	virtual void setWidth(int);
+	virtual int getWidth();
+	virtual bool isControlsList();
+
+	~Control() {};
 };
 
-#endif
