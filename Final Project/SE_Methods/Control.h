@@ -41,6 +41,9 @@ public:
 	virtual void setWidth(int);
 	virtual int getWidth();
 	virtual bool isControlsList();
+	virtual bool isLastIndex();
+	virtual void changeFocusedColor();
+	virtual void buttonEvent() {};
 
 	~Control() {};
 };
