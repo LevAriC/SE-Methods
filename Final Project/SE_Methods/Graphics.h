@@ -1,6 +1,4 @@
 #pragma once
-#ifndef GRAPHICS_H
-#define GRAPHICS_H
 
 #include <string>
 #include <windows.h>
@@ -8,27 +6,25 @@
 using namespace std;
 
 enum class Color { Black, Blue, Green, Red, Cyan, Purple, Orange, White };
-bool isInside(int x, int y, int left, int top, int width, int height);
 
 class Graphics
 {
 public:
 	Graphics(DWORD stdHandle = STD_OUTPUT_HANDLE);
 	void clearScreen();
-	void moveTo(int x, int y);
-	void setBackground(Color color);
-	void setForeground(Color color);
-	void write(string s);
-	void write(int x, int y, string s);
-	void write(wstring s);
-	void write(int x, int y, wstring s);
-	void setCursorVisibility(bool isVisible);
-
+	void moveTo(int, int);
+	void setBackground(Color);
+	void setForeground(Color);
+	void write(string);
+	void write(int, int, string);
+	void write(wstring);
+	void write(int, int, wstring);
+	void setCursorVisibility(bool);
 private:
 	HANDLE _console;
 	Color _background, _foreground;
 
 	void updateConsoleAttributes();
 };
-
-#endif 
+// Needs Attention
+//bool isInside(int x, int y, int left, int top, int width, int height);
