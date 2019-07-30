@@ -1,6 +1,11 @@
 #include "Panel.h"
 
-Panel::Panel(Border* border, short left, short top) : Control(left, top, border) {}
+Panel::Panel(Border* border, short left, short top, short width, short height) : Control(left, top, border)
+{
+	this->width = width;
+	this->height = height;
+}
+
 bool Panel::canGetFocus() { return TRUE; }
 void Panel::getAllControls(vector<Control*>* controls) { *controls = this->controlsList; }
 void Panel::pushToControlsList(Control* control) { controlsList.push_back(control); }
@@ -31,7 +36,7 @@ void Panel::mousePressed(int x, int y, bool isMousePressed)
 			control->mousePressed(x, y, isMousePressed);
 			break;
 		}
-		else if (!control->canGetFocus() && (y == _y && (x > left && x < (_x + _width - 1))))
+		else if (!(control->canGetFocus()) && (y == _y && (x > left && x < (_x + _width - 1))))
 		{
 			control->mousePressed(x, y, isMousePressed);
 			break;

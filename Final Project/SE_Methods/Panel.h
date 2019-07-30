@@ -9,7 +9,7 @@ class Panel : public Control
 	short height;
 
 public:
-	Panel(Border*, short, short);
+	Panel(Border*, short, short, short = 60, short = 30);
 
 	void initPanelFocus();
 	void setWidth(short);
