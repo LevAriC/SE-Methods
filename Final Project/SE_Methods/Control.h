@@ -36,6 +36,8 @@ public:
 	
 	virtual void setBackgroundColor(Color);
 	virtual void setForegroundColor(Color);
+	virtual Color getBackgroundColor();
+	virtual Color getForegroundColor();
 	virtual void setBorder(Border*);
 	virtual void onFocus(bool) {};
 	virtual void setWidth(int);

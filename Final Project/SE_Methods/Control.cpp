@@ -6,6 +6,9 @@ Control::Control(short left, short top, Border* border) : left(left), top(top), 
 Control* Control::getFocus() { return focusedControl; }
 void Control::setBackgroundColor(Color backgroundColor) { this->backgroundColor = backgroundColor; }
 void Control::setForegroundColor(Color foregroundColor) { this->foregroundColor = foregroundColor; }
+Color Control::getBackgroundColor() { return this->backgroundColor; }
+Color Control::getForegroundColor() { return this->foregroundColor; }
+
 void Control::setBorder(Border* border) { this->border = border; }
 void Control::setWidth(int) { this->width = width; }
 int Control::getWidth() { return width; }
@@ -37,14 +40,17 @@ bool Control::setFocus(Control& control)
 
 void Control::changeFocusedColor()
 {
-	if (backgroundColor == Color::White)
-	{
-		backgroundColor = Color::Black;
-		foregroundColor = Color::White;
-	}
-	else
-	{
-		backgroundColor = Color::White;
-		foregroundColor = Color::Black;
-	}
+	Color tmp = backgroundColor;
+	backgroundColor = foregroundColor;
+	foregroundColor = tmp;
+	//if (backgroundColor == Color::White)
+	//{
+	//	backgroundColor = Color::Black;
+	//	foregroundColor = Color::White;
+	//}
+	//else
+	//{
+	//	backgroundColor = Color::White;
+	//	foregroundColor = Color::Black;
+	//}
 }
