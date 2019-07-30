@@ -11,6 +11,7 @@ class MsgBox : public Control
 
 public:
 	MsgBox(short, short, string);
+	MsgBox(short, short, string, Color, Color);
 	void draw(Graphics&, int, int, size_t);
 	bool canGetFocus();
 	void buttonEvent();

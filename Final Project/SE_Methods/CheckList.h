@@ -8,7 +8,6 @@ class CheckBox : public Control
 
 public:
 	CheckBox(short, short, string);
-	CheckBox(short, short, string, Color, Color);
 	bool getSelected();
 	void setSelected();
 	void draw(Graphics&, int, int, size_t);

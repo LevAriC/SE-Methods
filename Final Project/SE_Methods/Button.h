@@ -11,6 +11,7 @@ class Button : public Control {
 
 public:
 	Button(Border*, short, short, string);
+	Button(Border*, short, short, string, Color, Color);
 	int getWidth();
 	void mousePressed(int, int, bool);
 	void PushToControlsList(Control*);

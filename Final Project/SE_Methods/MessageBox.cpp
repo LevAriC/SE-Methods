@@ -2,8 +2,13 @@
 
 bool MsgBox::canGetFocus() { return TRUE; }
 
-MsgBox::MsgBox(short left, short top, string message) :
-	Control(left, top), label(left, top, message), panel(new SingleBorder(), left, top, message.size() + 4, 4), isVisible(FALSE) {}
+MsgBox::MsgBox(short left, short top, string message) : Control(left, top), label(left, top, message), panel(new SingleBorder(), left, top, message.size() + 4, 4), isVisible(FALSE) {}
+
+MsgBox::MsgBox(short left, short top, string message, Color backgroundColor, Color foregroundColor) : Control(left, top), label(left, top, message), panel(new SingleBorder(), left, top, message.size() + 4, 4), isVisible(FALSE)
+{
+	this->setBackgroundColor(backgroundColor);
+	this->setForegroundColor(foregroundColor);
+}
 
 void MsgBox::draw(Graphics& graphics, int x, int y, size_t size)
 {

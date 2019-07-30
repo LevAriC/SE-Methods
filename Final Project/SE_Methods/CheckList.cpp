@@ -28,7 +28,7 @@ void CheckList::draw(Graphics& graphics, int x, int y, size_t z)
 	graphics.setBackground(backgroundColor);
 	graphics.setForeground(foregroundColor);
 	border->createBorder(graphics, x, y, 25, checkBoxList.size() * 4);
-	for (auto c : checkBoxList)
+	for (CheckBox* c : checkBoxList)
 		c->draw(graphics, c->getLeft() , y + c->getTop(), z);
 }
 

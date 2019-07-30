@@ -4,9 +4,15 @@
 int Button::getWidth()  { return width; }
 void Button::PushToControlsList(Control* control) { controlsList.push_back(control); }
 
-Button::Button(Border* border, short left, short top, string text)
-	: Control(left, top, border), text(text), isTriggered(FALSE)
+Button::Button(Border* border, short left, short top, string text) : Control(left, top, border), text(text), isTriggered(FALSE)
 {
+	this->width = TXTSIZE;
+}
+
+Button::Button(Border* border, short left, short top, string text, Color backgroundColor, Color foregroundColor) : Control(left, top, border), text(text), isTriggered(FALSE)
+{
+	this->setBackgroundColor(backgroundColor);
+	this->setForegroundColor(foregroundColor);
 	this->width = TXTSIZE;
 }
 

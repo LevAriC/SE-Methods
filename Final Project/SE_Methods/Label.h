@@ -8,6 +8,7 @@ class Label : public Control
 
 public:
 	Label(short, short, string);
+	Label(short, short, string, Color, Color);
 	void draw(Graphics&, int, int, size_t);
 };
 

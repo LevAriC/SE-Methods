@@ -1,7 +1,7 @@
 #include "RadioBox.h"
 #include <iostream>
 
-RadioItem::RadioItem(short left, short top, string str) :Control(left, top), text(str), isSelected(FALSE) {}
+RadioItem::RadioItem(short left, short top, string str) : Control(left, top), text(str), isSelected(FALSE) {}
 bool RadioItem::canGetFocus() { return TRUE; };
 bool RadioItem::isControlsList() { return TRUE; };
 bool RadioItem::getIsSelected() { return isSelected; }
@@ -57,6 +57,20 @@ RadioBox::RadioBox(Border* border, short left, short top, vector<string> values)
 {
 	for (int i = 0; i < values.size(); i++) {
 		RadioItemsList.push_back(new RadioItem(left + 2, 1 + (i * 3), values[i]));
+		COORD pos = { left + (short)4  , top + (short)(2 + (i * 3)) };
+		checkBoxCoord.push_back(pos);
+	}
+}
+
+RadioBox::RadioBox(Border* border, short left, short top, vector<string> values, Color backgroundColor, Color foregroundColor) : Control(left, top, border), currentCboxIndex(-1), selectedIndex(0), lastSelected(-1)
+{
+	this->setBackgroundColor(backgroundColor);
+	this->setForegroundColor(foregroundColor);
+
+	for (int i = 0; i < values.size(); i++) {
+		RadioItemsList.push_back(new RadioItem(left + 2, 1 + (i * 3), values[i]));
+		RadioItemsList[i]->setBackgroundColor(this->getBackgroundColor());
+		RadioItemsList[i]->setForegroundColor(this->getForegroundColor());
 		COORD pos = { left + (short)4  , top + (short)(2 + (i * 3)) };
 		checkBoxCoord.push_back(pos);
 	}

@@ -4,6 +4,8 @@
 
 using namespace std;
 
+TextBox::TextBox(Border* border, short left, short top, int width, int height) : Control(left, top, border), width(width), height(height), cursor(0), isFocused(FALSE), text() {}
+
 TextBox::TextBox(Border* border, short left, short top, int width, int height, Color backgroundColor = Color::Black, Color foregroundColor = Color::White) : Control(left, top, border), width(width), height(height), cursor(0), isFocused(FALSE), text()
 {
 	this->setBackgroundColor(backgroundColor);

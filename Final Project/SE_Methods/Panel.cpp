@@ -6,6 +6,12 @@ Panel::Panel(Border* border, short left, short top, short width, short height) :
 	this->height = height;
 }
 
+Panel::Panel(Border* border, short left, short top, Color backgroundColor, Color foregroundColor, short width, short height) : Control(left, top, border)
+{
+	this->setBackgroundColor(backgroundColor);
+	this->setForegroundColor(foregroundColor);
+}
+
 bool Panel::canGetFocus() { return TRUE; }
 void Panel::getAllControls(vector<Control*>* controls) { *controls = this->controlsList; }
 void Panel::pushToControlsList(Control* control) { controlsList.push_back(control); }

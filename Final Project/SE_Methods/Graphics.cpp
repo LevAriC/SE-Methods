@@ -76,10 +76,14 @@ void Graphics::updateConsoleAttributes()
 		case Color::Blue:	attributes |= FOREGROUND_BLUE; break;
 		case Color::Green:	attributes |= FOREGROUND_GREEN; break;
 		case Color::Red:	attributes |= FOREGROUND_RED; break;
+		case Color::Yellow:	attributes |= FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY; break;
+		case Color::Grey:	attributes |= FOREGROUND_INTENSITY; break;
 		case Color::Cyan:	attributes |= FOREGROUND_BLUE | FOREGROUND_GREEN; break;
 		case Color::Purple:	attributes |= FOREGROUND_BLUE | FOREGROUND_RED; break;
 		case Color::Orange: attributes |= FOREGROUND_GREEN | FOREGROUND_RED; break;
 		case Color::White:	attributes |= FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED; break;
+		case Color::Pink:	attributes |= FOREGROUND_BLUE | FOREGROUND_RED | FOREGROUND_INTENSITY; break;
+		case Color::Bright:	attributes |= FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY; break;
 	}
 
 	switch (_background)
@@ -88,10 +92,14 @@ void Graphics::updateConsoleAttributes()
 		case Color::Blue:	attributes |= BACKGROUND_BLUE; break;
 		case Color::Green:	attributes |= BACKGROUND_GREEN; break;
 		case Color::Red:	attributes |= BACKGROUND_RED; break;
+		case Color::Yellow:	attributes |= BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_INTENSITY; break;
+		case Color::Grey:	attributes |= BACKGROUND_INTENSITY; break;
 		case Color::Cyan:	attributes |= BACKGROUND_BLUE | BACKGROUND_GREEN; break;
 		case Color::Purple:	attributes |= BACKGROUND_BLUE | BACKGROUND_RED; break;
 		case Color::Orange: attributes |= BACKGROUND_GREEN | BACKGROUND_RED; break;
 		case Color::White:	attributes |= BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED; break;
+		case Color::Pink:	attributes |= BACKGROUND_BLUE | BACKGROUND_RED | BACKGROUND_INTENSITY; break;
+		case Color::Bright:	attributes |= BACKGROUND_BLUE | BACKGROUND_GREEN | BACKGROUND_RED | BACKGROUND_INTENSITY; break;
 	}
 
 	SetConsoleTextAttribute(_console, attributes);

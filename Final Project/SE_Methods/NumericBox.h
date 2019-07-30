@@ -10,6 +10,7 @@ class NumericBox : public Control {
 
 public:
 	NumericBox(Border*, short, short, int, int);
+	NumericBox(Border*, short, short, int, int, Color, Color);
 	void draw(Graphics&, int, int, size_t);
 	void mousePressed(int, int, bool);
 	int getWidth();
