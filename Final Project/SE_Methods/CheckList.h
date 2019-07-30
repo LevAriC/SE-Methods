@@ -8,6 +8,7 @@ class CheckBox : public Control
 
 public:
 	CheckBox(short, short, string);
+	CheckBox(short, short, string, Color, Color);
 	bool getSelected();
 	void setSelected();
 	void draw(Graphics&, int, int, size_t);
@@ -24,6 +25,7 @@ class CheckList : public Control
 
 public:
 	CheckList(Border*, short, short, vector<string>);
+	CheckList(Border*, short, short, vector<string>, Color, Color);
 	void draw(Graphics&, int, int, size_t);
 	void mousePressed(int, int, bool);
 	void keyDown(int, char, Graphics&);

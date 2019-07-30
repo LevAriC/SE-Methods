@@ -6,19 +6,20 @@ bool CheckList::canGetFocus() { return TRUE; }
 bool CheckList::isControlsList() { return TRUE; }
 void CheckList::onFocus(bool flag) { focus = flag; }
 CheckBox::CheckBox(short CBleft, short CBtop, string CBvalue) : Control(CBleft, CBtop), value(CBvalue), isSelected(FALSE) {}
+
 bool CheckBox::getSelected() { return isSelected; }
 bool CheckBox::getFocus() { return TRUE; }
 
-CheckList::CheckList(Border* border, short left, short top, vector<string> values) : Control(left, top, border), focusedCheckBox(-1) , selectedIndex(0)
+CheckList::CheckList(Border* border, short left, short top, vector<string> values, Color backgroundColor = Color::Black, Color foregroundColor = Color::White) : Control(left, top, border), focusedCheckBox(-1), selectedIndex(0)
 {
-	this->setBackgroundColor(Color::Red);
-	this->setForegroundColor(Color::Green);
+	this->setBackgroundColor(backgroundColor);
+	this->setForegroundColor(foregroundColor);
 
 	for (short i = 0; i < values.size(); i++) {
 		checkBoxList.push_back(new CheckBox(left + 2, 1 + (i * 3), values[i]));
 		checkBoxList[i]->setBackgroundColor(this->getBackgroundColor());
 		checkBoxList[i]->setForegroundColor(this->getForegroundColor());
-		checkBoxLocation.push_back({ left + 2  , 1 + (i * 3)});
+		checkBoxLocation.push_back({ left + 2  , 1 + (i * 3) });
 	}
 }
 

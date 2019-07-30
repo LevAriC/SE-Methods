@@ -43,14 +43,4 @@ void Control::changeFocusedColor()
 	Color tmp = backgroundColor;
 	backgroundColor = foregroundColor;
 	foregroundColor = tmp;
-	//if (backgroundColor == Color::White)
-	//{
-	//	backgroundColor = Color::Black;
-	//	foregroundColor = Color::White;
-	//}
-	//else
-	//{
-	//	backgroundColor = Color::White;
-	//	foregroundColor = Color::Black;
-	//}
 }

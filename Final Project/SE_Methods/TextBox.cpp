@@ -4,7 +4,12 @@
 
 using namespace std;
 
-TextBox::TextBox(Border* border, short left, short top, int width, int height) : Control(left, top, border), width(width), height(height), cursor(0), isFocused(FALSE), text() {}
+TextBox::TextBox(Border* border, short left, short top, int width, int height, Color backgroundColor = Color::Black, Color foregroundColor = Color::White) : Control(left, top, border), width(width), height(height), cursor(0), isFocused(FALSE), text()
+{
+	this->setBackgroundColor(backgroundColor);
+	this->setForegroundColor(foregroundColor);
+}
+
 void TextBox::onFocus(bool isFocused) { this->isFocused = isFocused; }
 bool TextBox::canGetFocus() { return TRUE; };
 int TextBox::getWidth() { return this->width; };
@@ -13,7 +18,7 @@ void TextBox::keyDown(int keyCode, char character, Graphics& graphics)
 {
 	graphics.moveTo(text.size() + (left + 1), top + 1);
 
-	if (character > 0)
+	if (character > 0 && character != 8)
 	{
 		if ((width - 2) > text.size() && (character >= 65 && character <= 90 || character >= 97 && character <= 122 || character >= 48 && character <= 57 || character == 32))
 		{
@@ -32,26 +37,23 @@ void TextBox::keyDown(int keyCode, char character, Graphics& graphics)
 				text.push_back(character);
 				cursor = static_cast<int>(text.size());
 			}
-
 		}
 	}
 	else
 	{
 		switch (keyCode)
 		{
-		case VK_DELETE:
-			if (cursor > 0)
-			{
-				text.erase(text.begin() + (cursor - 1));
-				--cursor;
-			}
-			break;
 		case VK_BACK:
 			if (cursor > 0)
 			{
 				text.erase(text.begin() + (cursor - 1));
 				--cursor;
 			}
+			break;
+		case VK_DELETE:
+			if (cursor > 0 && text.size() > cursor)
+				text.erase(text.begin() + (cursor));
+			break;
 		case VK_LEFT:
 			if (cursor > 0)
 				--cursor;
@@ -84,6 +86,9 @@ void TextBox::mousePressed(int x, int y, bool isMousePressed)
 
 void TextBox::draw(Graphics& graphics, int x, int y, size_t size)
 {
+	graphics.setBackground(backgroundColor);
+	graphics.setForeground(foregroundColor);
+
 	if (isFocused)
 	{
 		this->border->createBorder(graphics, x, y, this->width, this->height);

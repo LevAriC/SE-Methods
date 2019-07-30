@@ -11,7 +11,7 @@ class TextBox : public Control
 	int cursor;
 
 public:
-	TextBox(Border*, short, short, int, int);
+	TextBox(Border*, short, short, int, int, Color, Color);
 	bool canGetFocus();
 	void onFocus(bool);
 	void draw(Graphics&, int, int, size_t);
