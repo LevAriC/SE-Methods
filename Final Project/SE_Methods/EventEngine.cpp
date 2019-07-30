@@ -40,14 +40,12 @@ void EventEngine::run(Control &c)
 				if (code == VK_TAB)
 				{
 					if (f->isLastIndex())
-					{
 						moveFocus(c, f);
-					}
-
 				}	
 				else
 					f->keyDown(code, chr , _graphics);
-					redraw = true;
+
+				redraw = true;
 			}
 			break;
 		}
@@ -59,7 +57,7 @@ void EventEngine::run(Control &c)
 			auto y = coord.Y - c.getTop();
 			if (button == FROM_LEFT_1ST_BUTTON_PRESSED || button == RIGHTMOST_BUTTON_PRESSED)
 			{
-				c.mousePressed(x, y, button == FROM_LEFT_1ST_BUTTON_PRESSED);
+				c.mousePressed(x, y, button  == FROM_LEFT_1ST_BUTTON_PRESSED);
 				redraw = true;
 			}
 			break;
@@ -80,9 +78,7 @@ void EventEngine::moveFocus(Control &main, Control *focused)
 	auto it = find(controls.begin(), controls.end(), focused);
 	do
 		if (++it == controls.end())
-		{
 			it = controls.begin();
-		}
 	while (!(*it)->canGetFocus());
 
 	Control::setFocus(**it);
