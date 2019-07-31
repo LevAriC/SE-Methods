@@ -29,7 +29,6 @@ public:
 	RadioBox(Border*, short, short, vector<string>);
 	RadioBox(Border*, short, short, vector<string>, Color, Color);
 	void draw(Graphics&, int, int, size_t);
-	//void mousePressed(int, int, bool);
 	void keyDown(int, char, Graphics&);
 	bool canGetFocus();
 	bool isControlsList();

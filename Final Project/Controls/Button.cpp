@@ -20,8 +20,6 @@ void Button::mousePressed(int x, int y, bool isMousePressed)
 {
 	if (isMousePressed && (y == top && (x > left && x < (left + TXTSIZE))))
 	{
-		this->changeFocusedColor();
-
 		if (!isTriggered)
 			isTriggered = TRUE;
 		else

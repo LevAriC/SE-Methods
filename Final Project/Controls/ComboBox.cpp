@@ -99,7 +99,6 @@ void ComboBox::draw(Graphics& graphics, int x, int y, size_t size)
 				cout << '\xB3';
 				tempY++;
 			}
-
 		}
 	}
 }

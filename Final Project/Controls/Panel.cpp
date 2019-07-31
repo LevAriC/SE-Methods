@@ -8,6 +8,8 @@ Panel::Panel(Border* border, short left, short top, short width, short height) :
 
 Panel::Panel(Border* border, short left, short top, Color backgroundColor, Color foregroundColor, short width, short height) : Control(left, top, border)
 {
+	this->width = width;
+	this->height = height;
 	this->setBackgroundColor(backgroundColor);
 	this->setForegroundColor(foregroundColor);
 }

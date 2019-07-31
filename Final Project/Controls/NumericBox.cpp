@@ -38,6 +38,8 @@ NumericBox::NumericBox(Border* border, short left, short top, int min, int max, 
 
 void NumericBox::draw(Graphics& graphics, int x, int y, size_t z)
 {
+	graphics.setBackground(backgroundColor);
+	graphics.setForeground(foregroundColor);
 	border->createBorder(graphics, left, top, this->width + 4, 6);
 
 	graphics.moveTo(left + 2, top + 1);

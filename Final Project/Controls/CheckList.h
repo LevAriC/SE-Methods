@@ -23,13 +23,12 @@ class CheckList : public Control
 	bool focus;
 
 public:
-	CheckList(Border*, short, short, vector<string>);
 	CheckList(Border*, short, short, vector<string>, Color, Color);
 	void draw(Graphics&, int, int, size_t);
 	void mousePressed(int, int, bool);
 	void keyDown(int, char, Graphics&);
-	bool canGetFocus();
-	bool isControlsList();
-	bool isLastIndex();
 	void onFocus(bool);
+	bool canGetFocus();
+	bool isLastIndex();
+	bool isControlsList();
 };

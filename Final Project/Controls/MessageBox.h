@@ -5,13 +5,14 @@
 
 class MsgBox : public Control
 {
-	Panel panel;
 	Label label;
+	Button okButton, cancelButton;
+	string text;
 	bool isVisible;
 
 public:
-	MsgBox(short, short, string);
-	MsgBox(short, short, string, Color, Color);
+	MsgBox(Border* border, short, short, string);
+	MsgBox(Border* border, short, short, string, Color, Color);
 	void draw(Graphics&, int, int, size_t);
 	bool canGetFocus();
 	void buttonEvent();
