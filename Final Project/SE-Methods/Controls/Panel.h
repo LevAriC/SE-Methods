@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Control.h"
+#include "../Common/Control.h"
 
 class Panel : public Control
 {

@@ -1,5 +1,4 @@
 #pragma once
-#include "Control.h"
 #include "Button.h"
 
 class NumericBox : public Control {

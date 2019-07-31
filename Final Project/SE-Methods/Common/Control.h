@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Graphics.h"
-#include "Border.h"
+#include "../Controls/Border.h"
 #include <vector>
 
 using namespace std;
