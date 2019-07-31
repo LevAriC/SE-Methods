@@ -39,3 +39,6 @@ void Button::draw(Graphics& graphics, int x, int y, size_t z)
 	graphics.moveTo(x + 1, y + 1);
 	graphics.write(text);
 }
+
+//bool Button::getIsTriggered() { return isTriggered; }
+//void Button::setIsTriggered(bool trigger) { this->isTriggered = trigger; }

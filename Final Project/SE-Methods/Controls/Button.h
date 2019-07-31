@@ -5,9 +5,9 @@
 class Button : public Control {
 	vector <Control*> controlsList;
 	string text;
-	bool isTriggered;
 	int width;
 	int height;
+	bool isTriggered;
 
 public:
 	Button(Border*, short, short, string);
@@ -16,4 +16,6 @@ public:
 	void mousePressed(int, int, bool);
 	void PushToControlsList(Control*);
 	void draw(Graphics&, int, int, size_t);
+	//bool getIsTriggered();
+	//void setIsTriggered(bool);
 };

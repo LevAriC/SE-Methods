@@ -5,8 +5,8 @@
 
 class MsgBox : public Control
 {
-	Label label;
 	Button okButton, cancelButton;
+	Label label;
 	string text;
 	bool isVisible;
 
@@ -16,4 +16,5 @@ public:
 	void draw(Graphics&, int, int, size_t);
 	bool canGetFocus();
 	void buttonEvent();
+	void mousePressed(int, int, bool);
 };
